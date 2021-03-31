@@ -2656,11 +2656,12 @@ hr {
   padding-bottom: 80px;
 }
 .post-block:first-of-type {
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 @media (max-width: 767px) {
   .post-block:first-of-type {
-    padding-top: 60px;
+    /* padding-top: 60px; */
+    margin-top: 60px;
   }
 }
 @media (min-width: 992px) {
