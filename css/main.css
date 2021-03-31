@@ -2655,12 +2655,19 @@ hr {
 .main-inner {
   padding-bottom: 80px;
 }
+
+.main-inner.index.posts-expand .post-block{
+  box-shadow: 1px 3px 20px #ddd;
+  padding: 25px;
+  border-radius: 10px;
+}
+
 .post-block:first-of-type {
   /* padding-top: 80px; */
+  margin-top: 80px;
 }
 @media (max-width: 767px) {
   .post-block:first-of-type {
-    /* padding-top: 60px; */
     margin-top: 60px;
   }
 }
