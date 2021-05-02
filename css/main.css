@@ -2592,7 +2592,7 @@ hr {
   display: none;
 }
 .posts-expand .post-block:not(:first-child) {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 .posts-expand .post-header {
   margin-bottom: 20px;
