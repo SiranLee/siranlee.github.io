@@ -23,26 +23,22 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"siranlee.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="摘要本文对SCI的两种分区进行了介绍与简单的比较">
+<meta name="description" content="摘要这是对 **Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow ** 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~ PS: 本书链接在文章末尾，需要的同学自取">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SCI基础(二)">
-<meta property="og:url" content="http://siranlee.github.io/2021/05/22/SCI%E5%9F%BA%E7%A1%80-%E4%BA%8C/index.html">
+<meta property="og:title" content="Hands on ML-Chap1">
+<meta property="og:url" content="http://siranlee.github.io/2022/06/10/Hands%20on%20ML-Chap1/index.html">
 <meta property="og:site_name" content="Siran&#39;s Blog">
-<meta property="og:description" content="摘要本文对SCI的两种分区进行了介绍与简单的比较">
+<meta property="og:description" content="摘要这是对 **Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow ** 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~ PS: 本书链接在文章末尾，需要的同学自取">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s.im5i.com/2021/05/31/eCxcd.png">
-<meta property="og:image" content="https://s.im5i.com/2021/05/31/eCLlK.png">
-<meta property="og:image" content="https://s.im5i.com/2021/05/31/eCidF.webp">
-<meta property="article:published_time" content="2021-05-22T13:01:08.000Z">
-<meta property="article:modified_time" content="2021-05-31T15:10:46.932Z">
+<meta property="article:published_time" content="2022-06-10T13:10:40.000Z">
+<meta property="article:modified_time" content="2022-06-12T14:23:35.021Z">
 <meta property="article:author" content="Siran">
-<meta property="article:tag" content="SCI">
-<meta property="article:tag" content="期刊">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="机器学习术语">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s.im5i.com/2021/05/31/eCxcd.png">
 
 
-<link rel="canonical" href="http://siranlee.github.io/2021/05/22/SCI%E5%9F%BA%E7%A1%80-%E4%BA%8C/">
+<link rel="canonical" href="http://siranlee.github.io/2022/06/10/Hands%20on%20ML-Chap1/">
 
 
 <script class="page-configurations">
@@ -54,7 +50,7 @@
     lang   : 'en'
   };
 </script>
-<title>SCI基础(二) | Siran's Blog</title>
+<title>Hands on ML-Chap1 | Siran's Blog</title>
   
 
   <script>
@@ -176,7 +172,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SCI%E4%B8%BA%E4%BD%95%E8%A6%81%E5%88%86%E5%8C%BA"><span class="nav-number">2.</span> <span class="nav-text">SCI为何要分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%88%86%E5%8C%BA%E6%96%B9%E5%BC%8F%E2%80%93JCR%E5%88%86%E5%8C%BA-amp-%E4%B8%AD%E7%A7%91%E9%99%A2%E5%88%86%E5%8C%BA"><span class="nav-number">3.</span> <span class="nav-text">两种分区方式–JCR分区 &amp; 中科院分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%88%86%E5%8C%BA%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">4.</span> <span class="nav-text">两种分区的比较</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%AA%E4%BA%9B%E9%97%AE%E9%A2%98%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9D%A5%E8%A7%A3%E5%86%B3"><span class="nav-number">1.2.</span> <span class="nav-text">哪些问题适合使用机器学习来解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%B1%BB%E5%9E%8B-%E4%BB%AC"><span class="nav-number">1.3.</span> <span class="nav-text">机器学习系统的类型(们)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">1.4.</span> <span class="nav-text">机器学习面临的挑战</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%92%8C%E9%AA%8C%E8%AF%81-Testing-amp-Validating"><span class="nav-number">1.4.1.</span> <span class="nav-text">测试和验证(Testing &amp; Validating)</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -255,7 +251,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://siranlee.github.io/2021/05/22/SCI%E5%9F%BA%E7%A1%80-%E4%BA%8C/">
+    <link itemprop="mainEntityOfPage" href="http://siranlee.github.io/2022/06/10/Hands%20on%20ML-Chap1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/80775073?s=400&u=00a33ed18891eec72fde4e9ae1abc4e4edc0deb0&v=4">
@@ -268,7 +264,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SCI基础(二)
+          Hands on ML-Chap1
         </h1>
 
         <div class="post-meta-container">
@@ -279,7 +275,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-05-22 21:01:08" itemprop="dateCreated datePublished" datetime="2021-05-22T21:01:08+08:00">2021-05-22</time>
+      <time title="Created: 2022-06-10 21:10:40" itemprop="dateCreated datePublished" datetime="2022-06-10T21:10:40+08:00">2022-06-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,7 +283,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
         </span>
     </span>
 
@@ -304,14 +300,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>744</span>
+      <span>2.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>5 mins.</span>
     </span>
 </div>
 
@@ -322,30 +318,60 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>本文对SCI的两种分区进行了介绍与简单的比较</p>
+        <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>这是对 **Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow ** 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~</p>
+<p>PS: 本书链接在文章末尾，需要的同学自取✌</p>
 <span id="more"></span>
 
-<h4 id="SCI为何要分区"><a href="#SCI为何要分区" class="headerlink" title="SCI为何要分区"></a>SCI为何要分区</h4><p>​    SCI收录的期刊很多，各个期刊的质量，水准相差也比较大。而为了能够比较直观地反映某个期刊在某一学科或者某一5大类中的水平和大致排位，把同一领域的期刊。按照IF大小从大到小排序，然后再划分入不同的分区中。</p>
-<h4 id="两种分区方式–JCR分区-amp-中科院分区"><a href="#两种分区方式–JCR分区-amp-中科院分区" class="headerlink" title="两种分区方式–JCR分区 &amp; 中科院分区"></a>两种分区方式–JCR分区 &amp; 中科院分区</h4><ul>
-<li><p>JCR分区： JCR(Journal Citation Reports: 期刊引证报告)是对世界权威期刊进行系统客观评价的工具，而JCR中对期刊的划分所形成的分区叫做JCR分区。JCR分区将收录的所有期刊分类为176个不同学科类别，再对某个类别的期刊根据IF来划分分区：影响因子在前25%(含上限，下同)的期刊为Q1区，影响因子在25%-50%的期刊为Q2区，影响因子在50%-75%的期刊为Q3区，影响因子在75%之后的期刊为Q4区。</p>
-<p>可以在WOS(Web Of Science)中查看某期刊的期刊引证报告，步骤如下：</p>
-<img src="https://s.im5i.com/2021/05/31/eCxcd.png" width="450" />
-
-<img src="https://s.im5i.com/2021/05/31/eCLlK.png" width="600" /></li>
-<li><p>中科院分区: 中科院分区是由中国科学院国家科学图书馆所制定，它将所收录的期刊分为13大类，每大类又根据IF来划分分区，一共分为四个区：IF前5%为1区；IF在6%-20%为2区，IF在21%-50%为3区，其余的为四区。</p>
+<h4 id="机器学习是什么？"><a href="#机器学习是什么？" class="headerlink" title="机器学习是什么？"></a>机器学习是什么？</h4><p>书中谈到机器学习是计算机编程的科学(和艺术)，机器学习使得计算机可以通过数据来学习。这是一种看上去很清晰但是又感觉比较模糊的定义，关键是如何定义计算机“学习”呢？</p>
+<p>设想这样的一个过程G，这个过程G需要完成一个目标T, 我们为了达到这个目标进行一系列的训练E, 一般先完成一系列的训练再去通过过程G达到目标T，我们设置一个评价指标P来测量最终达到目标T的效果。如果我们达到目标T的效果(这由P来刻画) 随着进行的训练E的增加而提高，那么就说这个过程是具备学习能力的，对于计算机来说，如果一个程序具备上面的特点，就可以说它具备“学习”的能力。</p>
+<h4 id="哪些问题适合使用机器学习来解决"><a href="#哪些问题适合使用机器学习来解决" class="headerlink" title="哪些问题适合使用机器学习来解决"></a>哪些问题适合使用机器学习来解决</h4><ul>
+<li>(程序)需要手动调整或者有一长串规则的问题</li>
+<li>问题的背景是不断变化的环境</li>
+<li>问题的数据体量巨大</li>
+</ul>
+<h4 id="机器学习系统的类型-们"><a href="#机器学习系统的类型-们" class="headerlink" title="机器学习系统的类型(们)"></a>机器学习系统的类型(们)</h4><p>书中对机器学习系统按照以下三种方式进行了划分</p>
+<ul>
+<li><p>按照是否需要人工参与划分为 有监督学习(supervised learning), 无监督学习(unsupervised learning) 以及半监督学习(semisupervised learning)。</p>
+<p>在有监督学习中，喂给机器学习算法的是带标签的数据；无监督学习则使用的是不带标签的数据；而半监督学习使用的则是一大部分的无标签数据和一小部分的带标签数据。</p>
+<p>有监督学习(或者说机器学习本身)实际上一般有两类应用，一类是<strong>分类</strong>(classification),另一类是<strong>回归</strong>(regression 这里回归可以简单理解为预测，虽然预测只是回归的其中一个方面)。另外，在机器学习中，<strong>attribute</strong>是数据类型，可以理解为字段，而<strong>feature</strong>一般来说是指字段和其取值。</p>
+<p>无监督学习的算法包括聚类，数据降维(数据降维可以提取特征，这种模式和重整化很像)，异常检测等。</p>
+</li>
+<li><p>按照数据是一下子给足还是分批次给到机器学习算法而分为 批量学习(batch learning 数据一下子给足)和 在线学习(online learing 一点一点喂给机器学习算法)。</p>
+<p>Batch Learing 一般需要先在线下(offline)对数据进行学习，数据学习完毕之后才将其上线到生产环境中，如果需要对新的数据进行学习，那么就需要在线下对所有数据(新的&amp;老的)进行学习。</p>
+<p>而Online Learing 一般也是线下学习数据，学习时并不是像Batch Learing那样一股脑把数据全部给到，而是将数据切片一部分一部分地喂算法(这也使得它可以适应新数据)，但是上线后遇到新数据时，可以一边运行一边学习新数据。</p>
+</li>
+<li><p>按照是与数据进行比较还是建立回归模型分为 基于实例的学习(instance-based learning)和基于模型的学习(model-based learning)。</p>
+<p>Instance-based Learning 是说通过将新的数据和学习(训练数据)做对比，通过它们之间的相似程度来判断新的数据属于哪一类。自然这样的方法就需要设计合理的相似性度量。</p>
+<p>而model-based learing 本质上是要寻找feature之间的关联(回归就是干这个事儿的)，从而建立起数学模型，然后通过数学模型来预测新的值。这个数学模型中的参数是不确定的，需要我们通过一定的原则来求得，一般来说这里就要涉及到预测值和真实值之间的差异，需要定义一个cost function，通过最小化cost function 来求得这个模型中的参数。</p>
 </li>
 </ul>
-<h4 id="两种分区的比较"><a href="#两种分区的比较" class="headerlink" title="两种分区的比较"></a>两种分区的比较</h4><ul>
-<li><p>说法</p>
-<p>对于中科院的分区，一般说法是某本期刊在某学科大类总是第几区；而对于JCR分区，常用说法是某本期刊位于某学科的Q几</p>
+<h4 id="机器学习面临的挑战"><a href="#机器学习面临的挑战" class="headerlink" title="机器学习面临的挑战"></a>机器学习面临的挑战</h4><p>机器学习中我们可能遇到的问题主要来自于两个方面</p>
+<ul>
+<li><p>不好的训练数据</p>
+<p>不好的训练数据表现在以下几个方面：训练数据不足，缺乏有代表性的数据，数据中有过多的噪声，数据体现出与我们目标不相符合的特征。</p>
 </li>
-<li><p>覆盖</p>
-<p>由于JCR分区的分区方式遵循平均主义，而中科院的分区模式更近似于金字塔，这样就会使得某些在JCR分区中属于Q1分区的刊物在中科院分区下属于对应学科大类的2区甚至3区中。如Nature的亲儿子Nature Communications.</p>
-<img src="https://s.im5i.com/2021/05/31/eCidF.webp"  /></li>
-<li><p>分区法</p>
-<p>JCR分区在分区时参考的是当年的IF, 而中科院分区则参考的是该期刊的3年平均IF</p>
+<li><p>不好的模型</p>
+<p>好的模型在训练数据上表现优异，同时也具备良好的泛化能力。</p>
+<p>不好的模型一般有两种表现：</p>
+<ul>
+<li><p><strong>Overfitting</strong>(过拟合)</p>
+<p>overfitting 书中说得很清楚了，这里不再赘述。这里说一说避免overfitting的方法–正则化(regularization). 正则化是对模型的参数进行一定的限制(降低模型参数的自由度), 来使模型简单化以达到增强其泛化能力避免overfitting的方法。机器学习中用来刻画在训练中正则化程度的量(参数)叫做<strong>超参数</strong>(<strong>hyperprameter</strong>)，超参数是整个机器学习算法的参数，不同于模型的参数在训练的过程中渐进式地确定，超参数的值在开始训练之前就需要确定并保持下去。为了表示正则化和超参数的联系(但从名称上看是真的不容易将这二者联系起来)，我们一般的说法是 “正则化的超参数”</p>
+</li>
+<li><p><strong>Underfitting</strong>(欠拟合)</p>
+<p>underfitting书中也说得很清楚了，这里从略。</p>
 </li>
 </ul>
+</li>
+</ul>
+<h5 id="测试和验证-Testing-amp-Validating"><a href="#测试和验证-Testing-amp-Validating" class="headerlink" title="测试和验证(Testing &amp; Validating)"></a>测试和验证(Testing &amp; Validating)</h5><p>PS：这里主要是为了弄明白 测试，验证的概念以及训练和它们之间的关系，所以逻辑上和上面的小节会有点脱节。</p>
+<p>为了使得训练之后的模型进行评估，我们需要对训练好的模型进行<strong>测试(Testing)</strong>, 一般是将训练数据分为训练集(training set)和测试集(test set)，一般来说二者是八二开。将训练好的模型在测试集上进行测试，模型的计算值与测试集的标记值之间的错误率被称为<strong>泛化误差(generalization error)</strong>.</p>
+<p>有时我们需要对模型进行正则化以避免过拟合，由于正则化的程度是由超参数控制的，所以我们需要选择合适的超参数，那肯定就需要额外的数据来支持我们先确定超参数，因此就有了<strong>验证集(validation set)</strong>. 验证集是从剩下的训练集(训练集减去测试集)中再分离出来的。具体来说是，在训练集上对模型进行训练(在多个模型下，选出最好的那个模型)，然后将模型在验证集上进行训练以找到最合适的超参数，接着在将得到超参数的模型在整个训练集上进行训练(训练集+验证集)得到最终的模型，最后通过测试集来评估整个模型(借助于泛化误差)。</p>
+<p>如果验证集过大，那么就会导致真正用来训练的数据过少，这在我们需要对比多个模型时就十分不利，书上用了一个在我看来十分恰当的比喻：</p>
+<blockquote>
+<p>It would be like selecting the fastest sprinter to participate in a marathon.</p>
+</blockquote>
+<p>解决这个问题的一个比较优雅的方式是**交叉验证(cross-validation)**，将验证集分为一小块一小块的, 然后将每个训练后的模型在每一个小块验证集上进行验证，通过平均值来描述一个模型在整个验证集上的表现，再通过比较平均值来找到最合适的那个模型。</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1KTtkES7hxnfmcpm5e80IDg">Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow</a> 提取码：mpjp</p>
 
     </div>
 
@@ -373,8 +399,8 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/SCI/" rel="tag"># SCI</a>
-              <a href="/tags/%E6%9C%9F%E5%88%8A/" rel="tag"># 期刊</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9C%AF%E8%AF%AD/" rel="tag"># 机器学习术语</a>
           </div>
 
         
@@ -490,14 +516,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/05/20/2021-5-20%E8%AE%B0/" rel="prev" title="2021.5.20记">
-                  <i class="fa fa-chevron-left"></i> 2021.5.20记
+                <a href="/2021/05/22/SCI%E5%9F%BA%E7%A1%80-%E4%BA%8C/" rel="prev" title="SCI基础(二)">
+                  <i class="fa fa-chevron-left"></i> SCI基础(二)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/10/Hands%20on%20ML-Chap1/" rel="next" title="Hands on ML-Chap1">
-                  Hands on ML-Chap1 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

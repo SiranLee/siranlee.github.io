@@ -1740,6 +1740,17 @@ pre code {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
+.main-inner.index.posts-expand .post-block {
+  box-shadow: 1px 3px 20px #ddd;
+  padding: 25px;
+  border-radius: 10px;
+}
+.post-block:first-of-type {
+  margin-top: 80px;
+}
+.posts-expand .post-block:not(:first-child) {
+  margin-top: 80px;
+}
 .post-button {
   margin-top: 40px;
   text-align: center;
@@ -2120,6 +2131,9 @@ pre code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.vpower.txt-right {
+  display: none;
 }
 .post-eof {
   background: #ccc;
@@ -2592,7 +2606,7 @@ hr {
   display: none;
 }
 .posts-expand .post-block:not(:first-child) {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 .posts-expand .post-header {
   margin-bottom: 20px;
@@ -2655,15 +2669,7 @@ hr {
 .main-inner {
   padding-bottom: 80px;
 }
-
-.main-inner.index.posts-expand .post-block{
-  box-shadow: 1px 3px 20px #ddd;
-  padding: 25px;
-  border-radius: 10px;
-}
-
 .post-block:first-of-type {
-  /* padding-top: 80px; */
   margin-top: 80px;
 }
 @media (max-width: 767px) {
@@ -2711,7 +2717,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #18ff63;
+  background: #1b4aff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
