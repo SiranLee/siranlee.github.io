@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"siranlee.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="摘要这是对 **Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow ** 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~ PS: 本书链接在文章末尾，需要的同学自取">
+<meta name="description" content="摘要这是对 Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~ PS: 本书链接在文章末尾，需要的同学自取✌">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hands on ML-Chap1">
 <meta property="og:url" content="http://siranlee.github.io/2022/06/10/Hands%20on%20ML-Chap1/index.html">
 <meta property="og:site_name" content="Siran&#39;s Blog">
-<meta property="og:description" content="摘要这是对 **Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow ** 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~ PS: 本书链接在文章末尾，需要的同学自取">
+<meta property="og:description" content="摘要这是对 Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~ PS: 本书链接在文章末尾，需要的同学自取✌">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-10T13:10:40.000Z">
-<meta property="article:modified_time" content="2022-06-12T14:23:35.021Z">
+<meta property="article:modified_time" content="2022-06-13T02:33:04.544Z">
 <meta property="article:author" content="Siran">
 <meta property="article:tag" content="基础">
 <meta property="article:tag" content="机器学习术语">
@@ -318,7 +318,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>这是对 **Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow ** 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~</p>
+        <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>这是对 <strong>Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow</strong> 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~</p>
 <p>PS: 本书链接在文章末尾，需要的同学自取✌</p>
 <span id="more"></span>
 
@@ -370,7 +370,7 @@
 <blockquote>
 <p>It would be like selecting the fastest sprinter to participate in a marathon.</p>
 </blockquote>
-<p>解决这个问题的一个比较优雅的方式是**交叉验证(cross-validation)**，将验证集分为一小块一小块的, 然后将每个训练后的模型在每一个小块验证集上进行验证，通过平均值来描述一个模型在整个验证集上的表现，再通过比较平均值来找到最合适的那个模型。</p>
+<p>解决这个问题的一个比较优雅的方式是 **交叉验证(cross-validation)**，将验证集分为一小块一小块的, 然后将每个训练后的模型在每一个小块验证集上进行验证，通过平均值来描述一个模型在整个验证集上的表现，再通过比较平均值来找到最合适的那个模型。</p>
 <p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1KTtkES7hxnfmcpm5e80IDg">Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow</a> 提取码：mpjp</p>
 
     </div>
