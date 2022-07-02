@@ -100,7 +100,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -321,7 +323,6 @@
         <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>这是对 <strong>Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow</strong> 这本书的一系列读书笔记，由于我之前没有接触过机器学习，所以读这本书对我来说刚刚好。这一篇介绍其中的第一章，包括机器学习是如何定义的，哪些问题适合用机器学习来解决以及机器学习的一些术语，大佬就请绕道吧~</p>
 <p>PS: 本书链接在文章末尾，需要的同学自取✌</p>
 <span id="more"></span>
-
 <h4 id="机器学习是什么？"><a href="#机器学习是什么？" class="headerlink" title="机器学习是什么？"></a>机器学习是什么？</h4><p>书中谈到机器学习是计算机编程的科学(和艺术)，机器学习使得计算机可以通过数据来学习。这是一种看上去很清晰但是又感觉比较模糊的定义，关键是如何定义计算机“学习”呢？</p>
 <p>设想这样的一个过程G，这个过程G需要完成一个目标T, 我们为了达到这个目标进行一系列的训练E, 一般先完成一系列的训练再去通过过程G达到目标T，我们设置一个评价指标P来测量最终达到目标T的效果。如果我们达到目标T的效果(这由P来刻画) 随着进行的训练E的增加而提高，那么就说这个过程是具备学习能力的，对于计算机来说，如果一个程序具备上面的特点，就可以说它具备“学习”的能力。</p>
 <h4 id="哪些问题适合使用机器学习来解决"><a href="#哪些问题适合使用机器学习来解决" class="headerlink" title="哪些问题适合使用机器学习来解决"></a>哪些问题适合使用机器学习来解决</h4><ul>
@@ -355,7 +356,7 @@
 <p>不好的模型一般有两种表现：</p>
 <ul>
 <li><p><strong>Overfitting</strong>(过拟合)</p>
-<p>overfitting 书中说得很清楚了，这里不再赘述。这里说一说避免overfitting的方法–正则化(regularization). 正则化是对模型的参数进行一定的限制(降低模型参数的自由度), 来使模型简单化以达到增强其泛化能力避免overfitting的方法。机器学习中用来刻画在训练中正则化程度的量(参数)叫做<strong>超参数</strong>(<strong>hyperprameter</strong>)，超参数是整个机器学习算法的参数，不同于模型的参数在训练的过程中渐进式地确定，超参数的值在开始训练之前就需要确定并保持下去。为了表示正则化和超参数的联系(但从名称上看是真的不容易将这二者联系起来)，我们一般的说法是 “正则化的超参数”</p>
+<p>overfitting 书中说得很清楚了，这里不再赘述。这里说一说避免overfitting的方法—正则化(regularization). 正则化是对模型的参数进行一定的限制(降低模型参数的自由度), 来使模型简单化以达到增强其泛化能力避免overfitting的方法。机器学习中用来刻画在训练中正则化程度的量(参数)叫做<strong>超参数</strong>(<strong>hyperprameter</strong>)，超参数是整个机器学习算法的参数，不同于模型的参数在训练的过程中渐进式地确定，超参数的值在开始训练之前就需要确定并保持下去。为了表示正则化和超参数的联系(但从名称上看是真的不容易将这二者联系起来)，我们一般的说法是 “正则化的超参数”</p>
 </li>
 <li><p><strong>Underfitting</strong>(欠拟合)</p>
 <p>underfitting书中也说得很清楚了，这里从略。这里说一说避免underfitting的方法，underfitting的出现一般意味着数据的特征不能为预测提供足够的信息。这种情况下我们可以换一个更好的模型，或者再考察一下数据的更多特征，或者减少对模型的限制也就是说减小正则化的强度。</p>
@@ -370,7 +371,7 @@
 <blockquote>
 <p>It would be like selecting the fastest sprinter to participate in a marathon.</p>
 </blockquote>
-<p>解决这个问题的一个比较优雅的方式是 **交叉验证(cross-validation)**，将验证集分为一小块一小块的, 然后将每个训练后的模型在每一个小块验证集上进行验证，通过平均值来描述一个模型在整个验证集上的表现，再通过比较平均值来找到最合适的那个模型。</p>
+<p>解决这个问题的一个比较优雅的方式是 <strong>交叉验证(cross-validation)</strong>，将验证集分为一小块一小块的, 然后将每个训练后的模型在每一个小块验证集上进行验证，通过平均值来描述一个模型在整个验证集上的表现，再通过比较平均值来找到最合适的那个模型。</p>
 <p>更好地理解请移步：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Chaolei3/article/details/79270939">交叉验证与训练集、验证集、测试集</a></p>
 <p>PS: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1en2gTI0DVnDznhQktrmE2w?pwd=bgfj">Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow</a> 提取码：bgfj</p>
 

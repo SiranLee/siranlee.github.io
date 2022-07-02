@@ -30,8 +30,8 @@
 <meta property="og:site_name" content="Siran&#39;s Blog">
 <meta property="og:description" content="摘要我们从自信息出发🚌，一路看到相对熵🚩。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-01T09:11:53.000Z">
-<meta property="article:modified_time" content="2022-07-02T05:11:37.106Z">
+<meta property="article:published_time" content="2022-07-01T09:09:32.195Z">
+<meta property="article:modified_time" content="2022-07-02T07:21:29.828Z">
 <meta property="article:author" content="Siran">
 <meta property="article:tag" content="概念理解">
 <meta name="twitter:card" content="summary">
@@ -99,7 +99,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -274,7 +276,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-07-01 17:11:53" itemprop="dateCreated datePublished" datetime="2022-07-01T17:11:53+08:00">2022-07-01</time>
+      <time title="Created: 2022-07-01 17:09:32" itemprop="dateCreated datePublished" datetime="2022-07-01T17:09:32+08:00">2022-07-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,7 +305,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.6k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -323,15 +325,13 @@
     <div class="post-body" itemprop="articleBody">
         <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>我们从自信息出发🚌，一路看到相对熵🚩。</p>
 <span id="more"></span>
-
 <h4 id="自信息"><a href="#自信息" class="headerlink" title="自信息"></a>自信息</h4><p>自信息定义在单个事件上，它包含了两个方面的含义：</p>
 <ul>
 <li>在该单一事件发生前，自信息表示该事件发生的不确定性</li>
 <li>在该单一事件发生后，原来该事件发生的不确定性被消除了，自信息表示该事件带给我们的信息量即信息量等于被消除的不确定性</li>
 </ul>
 <p>自信息定义为：</p>
-<p>$$ I(x_i) = log\frac{1}{P(x_i)}=-logP(x_i)$$</p>
-<p>(这里设事件$X=x_i$)这个定义是根据自信息应该具有的以下性质而得到的：</p>
+<script type="math/tex; mode=display">I(x_i) = log\frac{1}{P(x_i)}=-logP(x_i)</script><p>(这里设事件$X=x_i$)这个定义是根据自信息应该具有的以下性质而得到的：</p>
 <ul>
 <li>对于必然事件，其不确定性为0，因此对于必然事件 $I(必然事件)=0$</li>
 <li>对于那些有可能发生的事件，其不确定性应该大于0即 $I(可能事件)&gt;0$</li>
@@ -339,45 +339,32 @@
 </ul>
 <p>对于单一可能的事件，其自信息恒为正</p>
 <h4 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h4><p>现在把视野从单个事件放宽到一组事件即事件集$\Omega$上，这一事件集对应一个概率分布$p_i$。我们现在考虑求这一组事件的自信息，比较朴素的想法是所有事件的自信息相加，但是每个事件有它自己发生的概率，借用统计中均值(期望)的定义我们可以写出：</p>
-<p>$$ H(p)=I(\Omega)=-\sum_i p_ilog(p_i)$$</p>
-<p>$log(p_i)$表示每个事件的信息量，$p_i$表示该事件发生的概率，因此$I(\Omega)$表示的是<strong>这组事件自信息的均值(期望)即信息熵</strong>。信息熵刻画了与一个概率分布相联系的事件集在其中任一事件发生前该事件集的总的不确定性或者为了消除这样的不确定性我们<strong>至少</strong>需要获得的信息量。</p>
+<script type="math/tex; mode=display">H(p)=I(\Omega)=-\sum_i p_ilog(p_i)</script><p>$log(p_i)$表示每个事件的信息量，$p_i$表示该事件发生的概率，因此$I(\Omega)$表示的是<strong>这组事件自信息的均值(期望)即信息熵</strong>。信息熵刻画了与一个概率分布相联系的事件集在其中任一事件发生前该事件集的总的不确定性或者为了消除这样的不确定性我们<strong>至少</strong>需要获得的信息量。</p>
 <h4 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h4><p>现在由于我们对所要研究的事件集$\Omega$了解得不是很多，所以相对其真实的分布$p_i$, 我们有一个自己的假定分布$q_i$。我们想要知道的是如果采取这样的假定的分布$q_i$，它能够带给我们关于事件集$\Omega$多少的了解呢，也就是说我们能够获得多少的信息呢？也许你会说，可以通过信息熵的公式直接算出来呀：</p>
-<p>$$I(\Omega)=-\sum_iq_ilog(q_i)$$</p>
-<p>而实际上是：</p>
-<p>$$I(\Omega)=-\sum_ip_ilog(q_i)$$</p>
-<p>这两种定义的区别就在于计算时取的真实分布的概率而非假定分布的概率，我们可以这样来理解：真实分布是先验的，它就算不为我们所知，也会在实验中体现出来(它支配着我们的实验)。如果换成假定的分布，对于某个事件对应的信息量$log(\frac{1}{q_i})$, 它对应的概率应该是$p_i$而不是我们假定的$q_i$，毕竟我们都不能保证这个事件服从的是我们的假定的分布。</p>
+<script type="math/tex; mode=display">I(\Omega)=-\sum_iq_ilog(q_i)</script><p>而实际上是：</p>
+<script type="math/tex; mode=display">I(\Omega)=-\sum_ip_ilog(q_i)</script><p>这两种定义的区别就在于计算时取的真实分布的概率而非假定分布的概率，我们可以这样来理解：真实分布是先验的，它就算不为我们所知，也会在实验中体现出来(它支配着我们的实验)。如果换成假定的分布，对于某个事件对应的信息量$log(\frac{1}{q_i})$, 它对应的概率应该是$p_i$而不是我们假定的$q_i$，毕竟我们都不能保证这个事件服从的是我们的假定的分布。</p>
 <p>这样定义出来的在假定分布下的不确定性或者获得的信息量叫做交叉熵：</p>
-<p>$$H(p,q)=I(\Omega)=-\sum_ip_ilog(q_i)$$</p>
-<p>当假定分布$q_i$等于真实分布$p_i$时，交叉熵等于信息熵，也就是说信息熵其实是交叉熵的一个特例，是交叉熵最小时的特例。</p>
+<script type="math/tex; mode=display">H(p,q)=I(\Omega)=-\sum_ip_ilog(q_i)</script><p>当假定分布$q_i$等于真实分布$p_i$时，交叉熵等于信息熵，也就是说信息熵其实是交叉熵的一个特例，是交叉熵最小时的特例。</p>
 <h4 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h4><p>交叉熵表示我们假定的一个分布下的不确定性，从这个角度来看，信息熵表示的是真实分布下的不确定性，那么我们用交叉熵减去信息熵得到的是假定分布相对于真实分布所增加的不确定性。从编码的角度来看的话，信息熵是编码信源信息所需的最少的编码位数，交叉熵也可做相似解释，那么交叉熵减去信息熵表示的是那些多出来的无效的编码位数。因此它们俩的差可以用来度量真实分布被作为假定分布时的无效性，我们称这样的量为相对熵：</p>
-<p>$$D(p||q)=H(p,q)-H(p)=\sum_{x\in X}p(x)log\frac{p(x)}{q(x)}$$</p>
-<h4 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h4><p>现在我们再引入一个随机变量$Y$，并且考虑在原有的随机变量$X$已知取值(对应的事件并未发生)的情况下，该随机变量$Y$对应的事件集的不确定性是多少？</p>
+<script type="math/tex; mode=display">D(p||q)=H(p,q)-H(p)=\sum_{x\in X}p(x)log\frac{p(x)}{q(x)}</script><h4 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h4><p>现在我们再引入一个随机变量$Y$，并且考虑在原有的随机变量$X$已知取值(对应的事件并未发生)的情况下，该随机变量$Y$对应的事件集的不确定性是多少？</p>
 <p>我们对于一个事件集上的不确定性已经有了一些经验了，那么$X$已知取值下$Y$的不确定性可以写为：</p>
-<p>$$H(Y|X=x)=H(Y|x)$$</p>
-<p>它表示$X=x$时$Y$的不确定性，那$X$可以取好多值呢，每个值都有其对应的概率呢。因此总体来说，$X$已知取值下$Y$的不确定性表示为：</p>
-<p>$$H(Y|X) = \sum_{x\in X}p(x)H(Y|x)$$</p>
-<p>这个式子有一点点全概率公式那味儿了，我们用$X$这个变量的取值$x$对$Y$进行分类，并且计算每一类的信息量。由于引入了$X$这一额外信息，原来随机变量$Y$的不确定会减少一些($X$和$Y$不是相互独立的情况下)。</p>
+<script type="math/tex; mode=display">H(Y|X=x)=H(Y|x)</script><p>它表示$X=x$时$Y$的不确定性，那$X$可以取好多值呢，每个值都有其对应的概率呢。因此总体来说，$X$已知取值下$Y$的不确定性表示为：</p>
+<script type="math/tex; mode=display">H(Y|X) = \sum_{x\in X}p(x)H(Y|x)</script><p>这个式子有一点点全概率公式那味儿了，我们用$X$这个变量的取值$x$对$Y$进行分类，并且计算每一类的信息量。由于引入了$X$这一额外信息，原来随机变量$Y$的不确定会减少一些($X$和$Y$不是相互独立的情况下)。</p>
 <p>进一步的，$H(Y|x)$为：</p>
-<p>$$H(Y|x) = -\sum_i p(y_i|x)logp(y_i|x)$$</p>
-<p>所以最终条件熵为：</p>
+<script type="math/tex; mode=display">H(Y|x) = -\sum_i p(y_i|x)logp(y_i|x)</script><p>所以最终条件熵为：</p>
 <p>$H(Y|X) = -\sum_x\sum_yp(x,y)logp(y|x)$</p>
 <p>这里$p(x,y)$表示联合概率分布(离散的)。</p>
 <h4 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h4><p>现在让我们回到单个事件$X=x$下，不过这里我们引入了另一个本质上不同但却有所关联的另一个事件$Y=y$, 我们现在考虑当$y$事件发生后会对$x$发生的不确定性有何种贡献，也就是说$y$事件发生后，与之有所关联的事件$x$的自信息如何？</p>
 <p>这样的问题比较好考虑的，$y$事件发生后$x$的自信息可以表示为：</p>
-<p>$$I(x|y)=-logP(x|y)$$</p>
-<p>而$x$的自信息表为：</p>
+<script type="math/tex; mode=display">I(x|y)=-logP(x|y)</script><p>而$x$的自信息表为：</p>
 <p>$I(x)=-logP(x)$</p>
 <p>那么$x$自信息的变化可以表示为：</p>
-<p>$$I(x;y)=I(x)-I(x|y)=log\frac{P(x|y)}{P(x)}=I(y;x)$$</p>
-<p>也就是说$y$事件发生后，$x$的自信息减少为$I(x;y)$，我们将它称为互信息，这里的“互”阐明了另一个事件$y$的参与以及上面等式的对称性。</p>
+<script type="math/tex; mode=display">I(x;y)=I(x)-I(x|y)=log\frac{P(x|y)}{P(x)}=I(y;x)</script><p>也就是说$y$事件发生后，$x$的自信息减少为$I(x;y)$，我们将它称为互信息，这里的“互”阐明了另一个事件$y$的参与以及上面等式的对称性。</p>
 <p>同样地，我们可以考虑一组事件下的互信息，按照同自信息一样的思路，可以得到：</p>
-<p>$$I(X;Y)=\sum_x\sum_yp(x,y)log\frac{p(x,y)}{p(x)p(y)}$$</p>
-<p>进一步地，按照自信息的期望是信息熵可以得到：</p>
-<p>$$I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)$$</p>
-<p>另外，通过相对熵还有：</p>
-<p>$$I(X;Y)=D(p(X,Y)||p(X)p(Y))$$</p>
-<p>它表示互信息度量了联合分布与边缘分布之间的差异</p>
-<p><em><strong>PS:以上的讨论都建立在随机变量所表示的事件没有发生的情况下，整个过程更像是在事件发生之前的对事件整体的一种估计，因此上面我们实际上更青睐于使用不确定性这个词。</strong></em></p>
+<script type="math/tex; mode=display">I(X;Y)=\sum_x\sum_yp(x,y)log\frac{p(x,y)}{p(x)p(y)}</script><p>进一步地，按照自信息的期望是信息熵可以得到：</p>
+<script type="math/tex; mode=display">I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)</script><p>另外，通过相对熵还有：</p>
+<script type="math/tex; mode=display">I(X;Y)=D(p(X,Y)||p(X)p(Y))</script><p>它表示互信息度量了联合分布与边缘分布之间的差异</p>
+<p><strong><em>PS:以上的讨论都建立在随机变量所表示的事件没有发生的情况下，整个过程更像是在事件发生之前的对事件整体的一种估计，因此上面我们实际上更青睐于使用不确定性这个词。</em></strong></p>
 
     </div>
 
