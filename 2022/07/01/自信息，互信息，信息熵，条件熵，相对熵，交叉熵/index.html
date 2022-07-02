@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"siranlee.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="声明 本文正文部分全文引用自知乎答主Yuhang Liu的回答，转载前已经过原文作者的同意。原文传送门：几何中的“内蕴”与“外蕴”之辨。">
+<meta name="description" content="摘要我们从自信息出发🚌，一路看到相对熵🚩。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="内蕴与外蕴之辨">
-<meta property="og:url" content="http://siranlee.github.io/2021/05/02/%E5%87%A0%E4%BD%95%E4%B8%AD%E7%9A%84%E2%80%9C%E5%86%85%E8%95%B4%E2%80%9D%E4%B8%8E%E2%80%9C%E5%A4%96%E8%95%B4%E2%80%9D%E4%B9%8B%E8%BE%A8/index.html">
+<meta property="og:title" content="自信息，互信息，信息熵，条件熵，交叉熵，相对熵">
+<meta property="og:url" content="http://siranlee.github.io/2022/07/01/%E8%87%AA%E4%BF%A1%E6%81%AF%EF%BC%8C%E4%BA%92%E4%BF%A1%E6%81%AF%EF%BC%8C%E4%BF%A1%E6%81%AF%E7%86%B5%EF%BC%8C%E6%9D%A1%E4%BB%B6%E7%86%B5%EF%BC%8C%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%8C%E4%BA%A4%E5%8F%89%E7%86%B5/index.html">
 <meta property="og:site_name" content="Siran&#39;s Blog">
-<meta property="og:description" content="声明 本文正文部分全文引用自知乎答主Yuhang Liu的回答，转载前已经过原文作者的同意。原文传送门：几何中的“内蕴”与“外蕴”之辨。">
+<meta property="og:description" content="摘要我们从自信息出发🚌，一路看到相对熵🚩。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-02T00:54:09.000Z">
-<meta property="article:modified_time" content="2021-05-31T12:47:43.894Z">
+<meta property="article:published_time" content="2022-07-01T09:11:53.000Z">
+<meta property="article:modified_time" content="2022-07-02T05:11:37.106Z">
 <meta property="article:author" content="Siran">
-<meta property="article:tag" content="名词理解">
+<meta property="article:tag" content="概念理解">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://siranlee.github.io/2021/05/02/%E5%87%A0%E4%BD%95%E4%B8%AD%E7%9A%84%E2%80%9C%E5%86%85%E8%95%B4%E2%80%9D%E4%B8%8E%E2%80%9C%E5%A4%96%E8%95%B4%E2%80%9D%E4%B9%8B%E8%BE%A8/">
+<link rel="canonical" href="http://siranlee.github.io/2022/07/01/%E8%87%AA%E4%BF%A1%E6%81%AF%EF%BC%8C%E4%BA%92%E4%BF%A1%E6%81%AF%EF%BC%8C%E4%BF%A1%E6%81%AF%E7%86%B5%EF%BC%8C%E6%9D%A1%E4%BB%B6%E7%86%B5%EF%BC%8C%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%8C%E4%BA%A4%E5%8F%89%E7%86%B5/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'en'
   };
 </script>
-<title>内蕴与外蕴之辨 | Siran's Blog</title>
+<title>自信息，互信息，信息熵，条件熵，交叉熵，相对熵 | Siran's Blog</title>
   
 
   <script>
@@ -171,7 +171,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">3.</span> <span class="nav-text">正文</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E4%BF%A1%E6%81%AF"><span class="nav-number">2.</span> <span class="nav-text">自信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-number">3.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-number">4.</span> <span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E7%86%B5"><span class="nav-number">5.</span> <span class="nav-text">相对熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E7%86%B5"><span class="nav-number">6.</span> <span class="nav-text">条件熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%92%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">互信息</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,7 +250,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://siranlee.github.io/2021/05/02/%E5%87%A0%E4%BD%95%E4%B8%AD%E7%9A%84%E2%80%9C%E5%86%85%E8%95%B4%E2%80%9D%E4%B8%8E%E2%80%9C%E5%A4%96%E8%95%B4%E2%80%9D%E4%B9%8B%E8%BE%A8/">
+    <link itemprop="mainEntityOfPage" href="http://siranlee.github.io/2022/07/01/%E8%87%AA%E4%BF%A1%E6%81%AF%EF%BC%8C%E4%BA%92%E4%BF%A1%E6%81%AF%EF%BC%8C%E4%BF%A1%E6%81%AF%E7%86%B5%EF%BC%8C%E6%9D%A1%E4%BB%B6%E7%86%B5%EF%BC%8C%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%8C%E4%BA%A4%E5%8F%89%E7%86%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/80775073?s=400&u=00a33ed18891eec72fde4e9ae1abc4e4edc0deb0&v=4">
@@ -263,7 +263,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          内蕴与外蕴之辨
+          自信息，互信息，信息熵，条件熵，交叉熵，相对熵
         </h1>
 
         <div class="post-meta-container">
@@ -274,7 +274,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-05-02 08:54:09" itemprop="dateCreated datePublished" datetime="2021-05-02T08:54:09+08:00">2021-05-02</time>
+      <time title="Created: 2022-07-01 17:11:53" itemprop="dateCreated datePublished" datetime="2022-07-01T17:11:53+08:00">2022-07-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,11 +282,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+          <a href="/categories/Information-Theory/" itemprop="url" rel="index"><span itemprop="name">Information Theory</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E5%AD%A6/%E5%87%A0%E4%BD%95/" itemprop="url" rel="index"><span itemprop="name">几何</span></a>
+          <a href="/categories/Information-Theory/Entropy/" itemprop="url" rel="index"><span itemprop="name">Entropy</span></a>
         </span>
     </span>
 
@@ -303,14 +303,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.9k</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -321,19 +321,63 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><blockquote>
-<p>本文正文部分全文引用自知乎答主<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/yuhang-liu-34">Yuhang Liu</a>的回答，转载前已经过原文作者的同意。原文传送门：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22096868">几何中的“内蕴”与“外蕴”之辨</a>。</p>
-</blockquote>
+        <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>我们从自信息出发🚌，一路看到相对熵🚩。</p>
 <span id="more"></span>
 
-<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>在阅读中发现了“内禀”这个这个名词，百度一圈之后发现和“内蕴”是同一个意思，而百度对于“内蕴”这个词的解释过于学术，故在此记录知乎答主YuhangLiu的更便于理解的回答，方便日后查阅。</p>
-<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>​    初学微分几何的朋友，总会觉得“内蕴几何”是个不好接受的概念。为什么管高斯绝妙定理叫内蕴的几何？内蕴与外蕴究竟有什么区别？现在，我就举几个基本的例子来说说什么叫内蕴，什么叫外蕴。</p>
-<p>​    所谓内蕴的几何，就是<strong>只需要在某个给定的几何对象内部进行研究，不需要外围的背景空间</strong>。除了给定的一个大的几何对象M以外，M外面的空间都不存在。举个例子，讨论平面几何的时候，我们讨论的实际就是平面本身的内蕴几何——平面几何的那些公设（不管是5条欧式公设还是希尔伯特新加进去的保证连续性的那些几何公理），都是只需要在平面内部进行操作吧？不需要引进“z轴”吧？不需要假设这个平面是3维欧式空间里面的哪一个平面吧？然后我们讨论空间几何（这里空间指的是3维欧式空间），实际也是3维欧式空间本身的内蕴几何——我们在3维空间中进行几何操作，并不需要引进第4个维度吧？</p>
-<p>​    然后再谈谈球面几何。对初学者而言，“直”的东西好理解，弯曲的东西就不好理解了。很多人都觉得，球面是3维欧式空间的一个子集啊，它上面的几何怎么会是只跟球面本身有关的呢？最简单的，比如球面上的距离要用大圆来定义吧？大圆是什么，是三维空间里面过原点的一个平面与球面的交集啊——看，不是出现了“原点”么？不是出现了“三维空间的平面”么？这些东西在球面上都没有，必须要在外围的背景空间——3维欧式空间中才能看到啊？这种几何怎么会是内蕴的呢？</p>
-<p>​    确实，从上面这种角度来看球面几何，<strong>的确像是外蕴的</strong>。但是，<strong>我们也有纯内蕴的方法去定义球面上的几何</strong>。如果读者学过黎曼几何（不是非欧几何里面那个黎曼几何，是黎曼的微分几何。。）的话，知道球面上可以定义标准度量——当然，球面标准度量可以看成3维欧式空间中的标准度量限制在球面上的诱导度量，但是，<strong>球面标准度量本身的定义是可以独立于3维欧式空间存在的</strong>！只不过内蕴的写法会麻烦一些，比如可以写出局部坐标，然后在局部坐标下写出度量张量。然后，在这个内蕴的标准度量下面，可以定义测地线——也就是大圆，有了测地线，就可以定义内蕴的距离。有了度量，还可以定义曲率。等等等等，于是传统的球面几何上的东西，都可以通过一个内蕴的度量来内蕴地定义。</p>
-<p>（我上面用微分几何的语言叙述是因为我只熟悉这一套语言，用古时候的球面几何的公理——即某种非欧几何的公理，是否也能内蕴地、不依赖3维背景空间地构建球面几何的体系，我不知道，不过我觉得是可以的）</p>
-<p>​    可能有人还是想不开，觉得：“我们日常生活的物理空间就是3维的啊，所以所有的几何都应该在3维内讨论才对，何必区分什么内蕴外蕴呢？”首先，<strong>我们日常生活的物理空间，并不是平直的3维欧式空间</strong>，这只不过是我们的大脑对外部空间感知产生的一个粗略的直觉——爱因斯坦之广义相对论的伟大之处，就在于他突破了这种直觉，认识到物理空间——实际上是物理时空可能用弯曲的几何学来描述更为合适。于是在这里你就可以看到内蕴几何学这个观念在物理里面的基本重要性——我们人类再牛逼，也没办法跳出宇宙之外去观察宇宙吧！我们只能在宇宙里面去观察宇宙，使用的工具只能是内蕴几何——其实内蕴几何学就是一种“只缘身在此山中”的感觉。其次，<strong>数学上的概念体系，并不需要与真实的物理模型完全匹配</strong>，我们完全可以发展3维以外的几何学——然后发现这些东西又可以神奇地反过来应用在物理学里面。取定一个绝对的参考系，然后把一切几何对象都放在这个参考系里面进行研究，这种思维方式在现代数学里面并不自然。如果非要取一个绝对的外在背景空间，这个空间得取多大才足够？恐怕无限维的Hilbert空间都不够吧。</p>
-<p>​    OK，说了这么多内蕴，现状该谈谈外蕴了。其实理解内蕴几何学的难点，在于抛弃3维欧式空间这个牢牢占据我们大脑的几何直观的背景空间，真正认识到——任何几何对象都有专属自己的独有几何学，不需要“别人”来“干涉”——开个脑洞，一个个流形就是一个个独立的几何王国哈哈～那么外蕴的几何呢，一般就是研究不同几何对象之间的关系——可以理解为王国之间的外交机构——的几何学。一般都是研究一个大的几何对象和里面的子对象之间的联系。比如研究任意黎曼流形的极小子流形、全测地子流形等等。</p>
+<h4 id="自信息"><a href="#自信息" class="headerlink" title="自信息"></a>自信息</h4><p>自信息定义在单个事件上，它包含了两个方面的含义：</p>
+<ul>
+<li>在该单一事件发生前，自信息表示该事件发生的不确定性</li>
+<li>在该单一事件发生后，原来该事件发生的不确定性被消除了，自信息表示该事件带给我们的信息量即信息量等于被消除的不确定性</li>
+</ul>
+<p>自信息定义为：</p>
+<p>$$ I(x_i) = log\frac{1}{P(x_i)}=-logP(x_i)$$</p>
+<p>(这里设事件$X=x_i$)这个定义是根据自信息应该具有的以下性质而得到的：</p>
+<ul>
+<li>对于必然事件，其不确定性为0，因此对于必然事件 $I(必然事件)=0$</li>
+<li>对于那些有可能发生的事件，其不确定性应该大于0即 $I(可能事件)&gt;0$</li>
+<li>对于两相互独立事件，它们同时发生的不确定性应该等于它们俩分别发生的不确定性之和即$I(AB)=I(A)+I(B)$</li>
+</ul>
+<p>对于单一可能的事件，其自信息恒为正</p>
+<h4 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h4><p>现在把视野从单个事件放宽到一组事件即事件集$\Omega$上，这一事件集对应一个概率分布$p_i$。我们现在考虑求这一组事件的自信息，比较朴素的想法是所有事件的自信息相加，但是每个事件有它自己发生的概率，借用统计中均值(期望)的定义我们可以写出：</p>
+<p>$$ H(p)=I(\Omega)=-\sum_i p_ilog(p_i)$$</p>
+<p>$log(p_i)$表示每个事件的信息量，$p_i$表示该事件发生的概率，因此$I(\Omega)$表示的是<strong>这组事件自信息的均值(期望)即信息熵</strong>。信息熵刻画了与一个概率分布相联系的事件集在其中任一事件发生前该事件集的总的不确定性或者为了消除这样的不确定性我们<strong>至少</strong>需要获得的信息量。</p>
+<h4 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h4><p>现在由于我们对所要研究的事件集$\Omega$了解得不是很多，所以相对其真实的分布$p_i$, 我们有一个自己的假定分布$q_i$。我们想要知道的是如果采取这样的假定的分布$q_i$，它能够带给我们关于事件集$\Omega$多少的了解呢，也就是说我们能够获得多少的信息呢？也许你会说，可以通过信息熵的公式直接算出来呀：</p>
+<p>$$I(\Omega)=-\sum_iq_ilog(q_i)$$</p>
+<p>而实际上是：</p>
+<p>$$I(\Omega)=-\sum_ip_ilog(q_i)$$</p>
+<p>这两种定义的区别就在于计算时取的真实分布的概率而非假定分布的概率，我们可以这样来理解：真实分布是先验的，它就算不为我们所知，也会在实验中体现出来(它支配着我们的实验)。如果换成假定的分布，对于某个事件对应的信息量$log(\frac{1}{q_i})$, 它对应的概率应该是$p_i$而不是我们假定的$q_i$，毕竟我们都不能保证这个事件服从的是我们的假定的分布。</p>
+<p>这样定义出来的在假定分布下的不确定性或者获得的信息量叫做交叉熵：</p>
+<p>$$H(p,q)=I(\Omega)=-\sum_ip_ilog(q_i)$$</p>
+<p>当假定分布$q_i$等于真实分布$p_i$时，交叉熵等于信息熵，也就是说信息熵其实是交叉熵的一个特例，是交叉熵最小时的特例。</p>
+<h4 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h4><p>交叉熵表示我们假定的一个分布下的不确定性，从这个角度来看，信息熵表示的是真实分布下的不确定性，那么我们用交叉熵减去信息熵得到的是假定分布相对于真实分布所增加的不确定性。从编码的角度来看的话，信息熵是编码信源信息所需的最少的编码位数，交叉熵也可做相似解释，那么交叉熵减去信息熵表示的是那些多出来的无效的编码位数。因此它们俩的差可以用来度量真实分布被作为假定分布时的无效性，我们称这样的量为相对熵：</p>
+<p>$$D(p||q)=H(p,q)-H(p)=\sum_{x\in X}p(x)log\frac{p(x)}{q(x)}$$</p>
+<h4 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h4><p>现在我们再引入一个随机变量$Y$，并且考虑在原有的随机变量$X$已知取值(对应的事件并未发生)的情况下，该随机变量$Y$对应的事件集的不确定性是多少？</p>
+<p>我们对于一个事件集上的不确定性已经有了一些经验了，那么$X$已知取值下$Y$的不确定性可以写为：</p>
+<p>$$H(Y|X=x)=H(Y|x)$$</p>
+<p>它表示$X=x$时$Y$的不确定性，那$X$可以取好多值呢，每个值都有其对应的概率呢。因此总体来说，$X$已知取值下$Y$的不确定性表示为：</p>
+<p>$$H(Y|X) = \sum_{x\in X}p(x)H(Y|x)$$</p>
+<p>这个式子有一点点全概率公式那味儿了，我们用$X$这个变量的取值$x$对$Y$进行分类，并且计算每一类的信息量。由于引入了$X$这一额外信息，原来随机变量$Y$的不确定会减少一些($X$和$Y$不是相互独立的情况下)。</p>
+<p>进一步的，$H(Y|x)$为：</p>
+<p>$$H(Y|x) = -\sum_i p(y_i|x)logp(y_i|x)$$</p>
+<p>所以最终条件熵为：</p>
+<p>$H(Y|X) = -\sum_x\sum_yp(x,y)logp(y|x)$</p>
+<p>这里$p(x,y)$表示联合概率分布(离散的)。</p>
+<h4 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h4><p>现在让我们回到单个事件$X=x$下，不过这里我们引入了另一个本质上不同但却有所关联的另一个事件$Y=y$, 我们现在考虑当$y$事件发生后会对$x$发生的不确定性有何种贡献，也就是说$y$事件发生后，与之有所关联的事件$x$的自信息如何？</p>
+<p>这样的问题比较好考虑的，$y$事件发生后$x$的自信息可以表示为：</p>
+<p>$$I(x|y)=-logP(x|y)$$</p>
+<p>而$x$的自信息表为：</p>
+<p>$I(x)=-logP(x)$</p>
+<p>那么$x$自信息的变化可以表示为：</p>
+<p>$$I(x;y)=I(x)-I(x|y)=log\frac{P(x|y)}{P(x)}=I(y;x)$$</p>
+<p>也就是说$y$事件发生后，$x$的自信息减少为$I(x;y)$，我们将它称为互信息，这里的“互”阐明了另一个事件$y$的参与以及上面等式的对称性。</p>
+<p>同样地，我们可以考虑一组事件下的互信息，按照同自信息一样的思路，可以得到：</p>
+<p>$$I(X;Y)=\sum_x\sum_yp(x,y)log\frac{p(x,y)}{p(x)p(y)}$$</p>
+<p>进一步地，按照自信息的期望是信息熵可以得到：</p>
+<p>$$I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)$$</p>
+<p>另外，通过相对熵还有：</p>
+<p>$$I(X;Y)=D(p(X,Y)||p(X)p(Y))$$</p>
+<p>它表示互信息度量了联合分布与边缘分布之间的差异</p>
+<p><em><strong>PS:以上的讨论都建立在随机变量所表示的事件没有发生的情况下，整个过程更像是在事件发生之前的对事件整体的一种估计，因此上面我们实际上更青睐于使用不确定性这个词。</strong></em></p>
 
     </div>
 
@@ -361,7 +405,7 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%90%8D%E8%AF%8D%E7%90%86%E8%A7%A3/" rel="tag"># 名词理解</a>
+              <a href="/tags/%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/" rel="tag"># 概念理解</a>
           </div>
 
         
@@ -477,14 +521,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/04/28/SCI%E5%9F%BA%E7%A1%80/" rel="prev" title="SCI基础(一)">
-                  <i class="fa fa-chevron-left"></i> SCI基础(一)
+                <a href="/2022/06/10/Hands%20on%20ML-Chap1/" rel="prev" title="Hands on ML-Chap1">
+                  <i class="fa fa-chevron-left"></i> Hands on ML-Chap1
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/20/2021-5-20%E8%AE%B0/" rel="next" title="2021.5.20记">
-                  2021.5.20记 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
